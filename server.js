@@ -18,15 +18,13 @@ bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
   const question = (
     prompt
-  ) => `Create a instagram post for personal page. Post with a ${prompt} description. /n
-/n
-Include emoji and the best Instagram hashtags for this post. /n
-/n
-Format each new sentence with a new line to make the text more readable. /n
-/n
-This post is intended for girls./n
-The writing style is gentle and friendly and use more emoji. /n
-Don't write the year. /n
+  ) => `Write a post for instagram for the photo ${prompt}. 
+
+Include emoji and the best Instagram hashtags for this post. 
+
+Format each new sentence with a new line to make the text more readable 
+
+The writing style is friendly and use more emoji. 
 The answer is in Russian only`;
 
   // const response = await openaiApi.createCompletion({
