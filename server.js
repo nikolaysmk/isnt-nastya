@@ -47,4 +47,6 @@ The answer is in Russian only`
   const answer = response.data.choices[0].message.content
   console.log(answer)
   bot.sendMessage(chatId, answer)
+  fs.appendFileSync('prompt.txt', msg.text, 'utf8')
+  fs.appendFileSync('answer.txt', answer, 'utf8')
 })
