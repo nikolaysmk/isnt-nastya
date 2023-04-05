@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const fs = require('fs')
 const { OpenAIApi } = require('openai')
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
@@ -25,7 +26,10 @@ const handleMessage = async (msg, bot) => {
       messages: [{ role: 'user', content: question(msg.text) }],
     })
     const answer = response?.data?.choices[0]?.message?.content
+
     await bot.sendMessage(chatId, answer)
+
+    fs.writeFile('hello.txt', answer, 'utf8')
   } catch (error) {
     response = error
     await bot.sendMessage(chatId, response)
